@@ -11,16 +11,16 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //Create stars table in the BDD set in ENV file
     public function up()
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create('stars', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->string('lastname');
+            $table->string('firstname');
+            $table->binary('image');
+            $table->string('description');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('stars');
     }
 };
